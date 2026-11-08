@@ -2,97 +2,35 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Aqui tem uma proposta de descrição estruturada para o seu projeto de estudo. Ela foi desenhada para ser clara, profissional e direta, ideal para colocar no README do GitHub, na introdução de um artigo ou na documentação do projeto.
 
-## Description
+online-coures-mockery — Estudo Prático de Domain Events e Domain Integration
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este projeto é um laboratório de estudo focado na exploração, implementação e diferenciação de dois padrões arquiteturais críticos em sistemas distribuídos e orientados a domínios (DDD): Domain Events (Eventos de Domínio) e Domain Integration (Integração de Domínios).
+O objetivo principal é demonstrar, de forma prática, como desacoplar a lógica de negócio interna de uma aplicação e como comunicar de forma eficiente e segura diferentes domínios ou microsserviços.
 
-## Project setup
+🎯 Objetivos do Projeto
 
-```bash
-$ npm install
-```
+• Compreender Domain Events: Implementar eventos que reagem a mudanças de estado dentro do mesmo contexto delimitado (Bounded Context), garantindo a consistência eventual imediata e o desacoplameto de efeitos secundários (ex: enviar um e-mail após a criação de um pedido).
+• Compreender Domain Integration: Explorar a comunicação entre diferentes contextos ou microsserviços, transformando eventos internos em eventos de integração (Integration Events) públicos e agnósticos.
+• Consistência e Transacionalidade: Estudar padrões como o Outbox Pattern para garantir que a persistência no banco de dados e a publicação do evento ocorram de forma atómica (evitando perda de mensagens).
 
-## Compile and run the project
+🚀 Arquitetura e Tecnologias
 
-```bash
-# development
-$ npm run start
+O projeto simula um ecossistema de [ex: E-commerce / Finanças] utilizando:
+• Padrões: Domain-Driven Design (DDD), Event-Driven Architecture (EDA), Outbox Pattern.
+• Comunicação Interna: [ex: MediatR / Eventos em memória da linguagem] para os Domain Events.
+• Comunicação Externa: [ex: RabbitMQ / Apache Kafka / AWS SNS-SQS] para a Integração de Domínios.
+• Linguagem/Framework: [ex: .NET 8 / Java Spring Boot / Node.js].
 
-# watch mode
-$ npm run start:dev
+🧠 Aprendizados Chave
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+1. Eventos de Domínio ≠ Eventos de Integração: Onde termina o domínio e onde começa a rede.
+2. Linguagem Ubíqua: Como modelar eventos que usem termos reais do negócio.
+3. Resiliência: Como lidar com falhas de rede, idempotência e repetição de mensagens.
+Para deixar esta descrição perfeita para o seu caso, pode dizer-me:
+• Qual é a linguagem de programação ou framework que está a usar?
+• Qual é o sistema de mensageria (ex: RabbitMQ, Kafka) ou se está a fazer tudo em memória?
+• Qual é o tema de negócio do exemplo (ex: uma loja online, um banco, uma biblioteca)?
+Com estes detalhes, posso personalizar os campos entre parênteses para si.
