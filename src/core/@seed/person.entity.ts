@@ -21,9 +21,9 @@ export abstract class person<TProps extends personProps = personProps> extends E
             throw new Error('A person cannot be born in the future.');
         }
 
-       const newAgeInMonths = person.calculateAgeInMonths(props.birthDate);
+       const newAgeInMonths = person.calculateAge(props.birthDate);
         if (newAgeInMonths < 18) {
-        throw new Error('The corrected birth date results in an invalid age (must be at least 1 year and 6 months old).');
+        throw new Error("The corrected birth date results in an invalid age (must be at least 18 year old).");
         }
 
         // 2. Initialize parent class
@@ -143,9 +143,9 @@ export abstract class person<TProps extends personProps = personProps> extends E
             throw new Error('Birth date cannot be in the future.');
         }
 
-        const newAgeInMonths = person.calculateAgeInMonths(newBirthDate);
+        const newAgeInMonths = person.calculateAge(newBirthDate);
         if (newAgeInMonths < 18) {
-        throw new Error('The corrected birth date results in an invalid age (must be at least 1 year and 6 months old).');
+        throw new Error('The corrected birth date results in an invalid age (must be at least 18 year old).');
         }
 
         this.props.birthDate = newBirthDate;
@@ -162,36 +162,10 @@ export abstract class person<TProps extends personProps = personProps> extends E
         }
     }
 
-    /**
-     * Pure function to calculate current age uniformly.
-     */
-    public static calculateAge(birthDate: Date): number {
+   static calculateAge(birthDate: Date): number {
         const today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
-        const monthDifference = today.getMonth() - birthDate.getMonth();
-
-        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
         return age;
-    }
-
-
-
-    public static calculateAgeInMonths(birthDate: Date): number {
-    const today = new Date();
-    
-    // 1. Calcula a diferença base em meses considerando os anos
-    let months = (today.getFullYear() - birthDate.getFullYear()) * 12;
-    months += today.getMonth() - birthDate.getMonth();
-
-    // 2. Se o dia de hoje for menor que o dia de nascimento, 
-    // significa que ainda não completou o mês atual. Subtraímos 1 mês.
-    if (today.getDate() < birthDate.getDate()) {
-        months--;
-    }
-
-    return months;
     }
 
 }
