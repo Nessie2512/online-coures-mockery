@@ -22,7 +22,7 @@ O projeto simula um ecossistema de [ex: E-commerce / Finanças] utilizando:
 • Padrões: Domain-Driven Design (DDD), Event-Driven Architecture (EDA), Outbox Pattern.
 • Comunicação Interna: [ex: MediatR / Eventos em memória da linguagem] para os Domain Events.
 • Comunicação Externa: [ex: RabbitMQ / Apache Kafka / AWS SNS-SQS] para a Integração de Domínios.
-• Linguagem/Framework: [ex: .NET 8 / Java Spring Boot / Node.js].
+• Linguagem/Framework: [Nest Js].
 
 🧠 Aprendizados Chave
 
