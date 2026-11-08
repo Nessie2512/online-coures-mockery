@@ -1,16 +1,18 @@
 import { Entity } from "../@seed/Entity";
 
+type EnrollmentStatus = 'active' | 'completed' | 'dropped';
 
 type EnrollmentProps = {
   studentId: string;
   courseId: string;
   enrollmentDate: Date;
-  status: 'active' | 'completed' | 'dropped';
 };
 
 export class Enrollment extends Entity<EnrollmentProps> {
+  private _status: EnrollmentStatus;
   private constructor(props: EnrollmentProps, id?: string) {
     super(props, id);
+    this._status = 'active'; // Default status when an enrollment is created
   }
 
   static create(props: EnrollmentProps, id?: string): Enrollment {
@@ -29,11 +31,19 @@ export class Enrollment extends Entity<EnrollmentProps> {
     return this.props.enrollmentDate;
   }
 
-  get getStatus(): 'active' | 'completed' | 'dropped' {
-    return this.props.status;
+  get getStatus(): EnrollmentStatus {
+    return this._status;
   }
 
-  updateStatus(newStatus: 'active' | 'completed' | 'dropped'): void {
-    this.props.status = newStatus;
+  updateStatus(newStatus: EnrollmentStatus): void {
+    this._status = newStatus;
   } 
+
+  completeEnrollment(): void {
+    this.updateStatus('completed');
+  }
+
+  dropEnrollment(): void {
+    this.updateStatus('dropped');
+  }
 }
