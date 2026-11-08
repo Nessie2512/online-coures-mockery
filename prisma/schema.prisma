@@ -6,4 +6,81 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+// 🟢 Modelo de Estudante
+model Student {
+  id           Int          @id @default(autoincrement())
+  uuid         String       @unique @default(uuid())
+  studentCode  String?      @unique
 
+  // Dados Pessoais (Achatados dos teus VOs)
+  Name         String
+  sex          Sex
+  birthDate    DateTime
+  isActive     Boolean      @default(true)
+  nationality  String
+  email        String       @unique
+
+  // Endereço (Achatado)
+  street       String
+  city         String
+  state        String
+
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  // Relacionamentos
+  enrollments  Enrollment[]
+
+  @@map("students")
+}
+
+// 🟢 Modelo de Curso (Atualizado com CourseProps)
+model Course {
+  id          Int          @id @default(autoincrement()) // Chave primária interna para relações
+  uuid        String       @unique @default(uuid())      // ID de consulta pública
+  name        String
+  description String?                                    // Opcional conforme o teu tipo
+  duration    Int?                                       // Opcional conforme o teu tipo
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relacionamentos
+  enrollments Enrollment[]
+
+  @@map("courses")
+}
+
+// 🟢 Modelo de Matrícula (Tabela Intermédia / Pivot)
+model Enrollment {
+  id         Int              @id @default(autoincrement())
+  uuid       String           @unique @default(uuid())
+  status     EnrollmentStatus @default(active)
+
+  // Chaves Estrangeiras internas (Int)
+  studentId  Int
+  courseId   Int
+
+  // Relações do Prisma
+  student    Student          @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  course     Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@unique([studentId, courseId])
+  @@map("enrollments")
+}
+
+// ─── ENUMS DO SISTEMA ───
+
+enum Sex {
+  M
+  F
+}
+
+enum EnrollmentStatus {
+  active
+  completed
+  dropped
+}

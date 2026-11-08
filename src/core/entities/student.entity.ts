@@ -1,7 +1,9 @@
 import { person, personProps } from "../@seed/person.entity"
+import { InvariantViolationError } from "../errors/domainError";
 
 type StudentProps = personProps & {
     studentCode?: string;
+    email: string;
 }
 
 export class Student extends person<StudentProps>{
@@ -20,6 +22,22 @@ export class Student extends person<StudentProps>{
 
     get getStudentCode(): string | undefined {
         return this.props.studentCode;
+    }
+
+    get getEmail(): string {
+        return this.props.email;
+    }
+
+    private isValidEmail(email: string): boolean {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    public changeEmail(newEmail: string): void {
+        if (!this.isValidEmail(newEmail)) {
+            throw new InvariantViolationError(`Invalid email format: ${newEmail}`);
+        }
+        this.props.email = newEmail;
     }
 
 }
