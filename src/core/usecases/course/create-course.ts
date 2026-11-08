@@ -1,7 +1,8 @@
+import { Injectable } from "@nestjs/common";
 import { Course } from "../../entities/course.entity";
 import { courseRepository } from "../../repository/course-repository";
 
-
+@Injectable()
 export class createCoures {
 
     constructor(

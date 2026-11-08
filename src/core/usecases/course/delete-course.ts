@@ -1,6 +1,8 @@
+import { inject } from "vitest";
 import { courseRepository } from "../../repository/course-repository";
+import { Injectable } from "@nestjs/common";
 
-
+@Injectable()
 export class deleteCourse {
 
     constructor(

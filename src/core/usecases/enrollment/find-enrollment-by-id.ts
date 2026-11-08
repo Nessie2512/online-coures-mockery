@@ -1,6 +1,7 @@
+import { Injectable } from "@nestjs/common";
 import { EnrollmentRepository } from "../../repository/enrollment-repository";
 
-
+@Injectable()
 export class findEnrollmentById {
 
     constructor(

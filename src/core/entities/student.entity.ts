@@ -1,7 +1,7 @@
 import { person, personProps } from "../@seed/person.entity"
 import { InvariantViolationError } from "../errors/domainError";
 
-type StudentProps = personProps & {
+export type StudentProps = personProps & {
     studentCode?: string;
     email: string;
 }
