@@ -6,10 +6,13 @@ type StudentProps = personProps & {
 
 export class Student extends person<StudentProps>{
 
-    constructor(props: StudentProps, id?: string) {
+    private constructor(props: StudentProps, id?: string) {
         super(props, id);
     }
 
+    static create(props: StudentProps, id?: string): Student {
+        return new Student(props, id);
+    }
 
     addStudentCode(studentCode: string): void {
         this.props.studentCode = studentCode;
