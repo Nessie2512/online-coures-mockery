@@ -9,7 +9,7 @@ datasource db {
 // 🟢 Modelo de Estudante
 model Student {
   id           Int          @id @default(autoincrement())
-  uuid         String       @unique @default(uuid())
+  uuid         String       @unique 
   studentCode  String?      @unique
 
   // Dados Pessoais (Achatados dos teus VOs)
@@ -37,7 +37,7 @@ model Student {
 // 🟢 Modelo de Curso (Atualizado com CourseProps)
 model Course {
   id          Int          @id @default(autoincrement()) // Chave primária interna para relações
-  uuid        String       @unique @default(uuid())      // ID de consulta pública
+  uuid        String       @unique       // ID de consulta pública
   name        String
   description String?                                    // Opcional conforme o teu tipo
   duration    Int?                                       // Opcional conforme o teu tipo
@@ -54,7 +54,7 @@ model Course {
 // 🟢 Modelo de Matrícula (Tabela Intermédia / Pivot)
 model Enrollment {
   id         Int              @id @default(autoincrement())
-  uuid       String           @unique @default(uuid())
+  uuid       String           @unique 
   status     EnrollmentStatus @default(active)
 
   // Chaves Estrangeiras internas (Int)

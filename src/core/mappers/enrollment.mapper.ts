@@ -18,7 +18,7 @@ export class enrollmentMapper {
    static toPrisma(enrollment: Enrollment): any {
 
         return {
-            id: enrollment.id,
+            uuid: enrollment.id,
             studentId: enrollment.getStudentId,
             courseId: enrollment.getCourseId,
             createdAt: enrollment.createdAt,

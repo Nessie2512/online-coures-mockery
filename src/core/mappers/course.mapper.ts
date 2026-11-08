@@ -16,7 +16,7 @@ export class courseMapper {
     static toPrisma(course: Course){
 
         return {
-            id: course.id,
+            uuid: course.id,
             name: course.getName,
             description: course.getDescription,
             createdAt: course.createdAt,

@@ -11,6 +11,8 @@ export class createCoures {
 
     async execute(
         courseData: {name: string, description?: string; duration?: number;}): Promise<void> {
-         await this.courseRepository.save(courseData);
+         
+            const newCourse = Course.create(courseData);
+            await this.courseRepository.save(newCourse);
     }   
 }

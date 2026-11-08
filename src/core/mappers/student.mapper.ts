@@ -22,7 +22,7 @@ export class studentMapper {
    static toPrisma(student: Student): any {
         
         return {
-            id: student.id,
+            uuid: student.id,
             Name: student.getName,
             email: student.getEmail,
             sex: student.getSex,
