@@ -3,7 +3,7 @@ import { StudentRepository } from "../../repository/student-repository";
 
 
 @Injectable()
-export class findByIdStudent {
+export class findByIdCourse {
 
     constructor(
         private readonly studentRepository: StudentRepository,
