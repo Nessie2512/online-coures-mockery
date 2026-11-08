@@ -5,7 +5,6 @@ type EnrollmentStatus = 'active' | 'completed' | 'dropped';
 type EnrollmentProps = {
   studentId: string;
   courseId: string;
-  enrollmentDate: Date;
 };
 
 export class Enrollment extends Entity<EnrollmentProps> {
@@ -28,7 +27,7 @@ export class Enrollment extends Entity<EnrollmentProps> {
   }
 
   get getEnrollmentDate(): Date {
-    return this.props.enrollmentDate;
+    return this.createdAt;
   }
 
   get getStatus(): EnrollmentStatus {
