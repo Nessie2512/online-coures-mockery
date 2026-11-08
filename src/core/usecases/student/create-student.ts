@@ -1,14 +1,13 @@
+import { StudentRepository } from "../../repository/student-repository";
 
 
 export class createStudent{
 
     constructor(
-        private readonly studentRepository: any,
-        private readonly enrollmentRepository: any
+        private readonly studentRepository: StudentRepository,
     ) {}
 
     async execute(studentData: any, courseId: string): Promise<void> {
-        const student = await this.studentRepository.create(studentData);
+         await this.studentRepository.save(studentData);
 }
-
 }
